@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoCode // Quiz</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <section class="quiz-container">
+      <div class="timer-container"><div id="timer">25:00</div></div>
+      <h2>CODE FRAGMENT ANALYSIS</h2>
+
+      <div class="language-badge" id="languageBadge">JAVA</div>
+      <div class="difficulty-indicator difficulty-medium" id="difficultyIndicator">DIFFICULTY: MEDIUM</div>
+
+      <div class="code-container">
+        <pre id="codeSnippet">
+// Example question here
+        </pre>
+      </div>
+
+      <div class="hint-toggle" id="hintToggle"><i class="fas fa-lightbulb"></i> Need a hint?</div>
+      <div class="hint-container" id="hintContainer"></div>
+
+      <div class="code-actions">
+        <button class="btn" id="copyCode">COPY FRAGMENT</button>
+        <button class="btn btn-skip" id="skipQuestion">SKIP CHALLENGE</button>
+      </div>
+      <div class="skip-counter" id="skipCounter">Skips remaining: 5</div>
+
+      <div class="answer-container">
+        <label>SELECT THE CORRECT OUTPUT:</label>
+        <div class="options-container" id="optionsContainer"></div>
+      </div>
+
+      <button class="btn btn-submit" id="submitAnswer">TRANSMIT SOLUTION</button>
+
+      <div class="progress-container"><div id="progress">Challenge 1 of 20</div></div>
+    </section>
+  </div>
+
+  <footer>
+    <p>NeoCode Terminal v5.0.1 // Cybersecurity Enabled</p>
+  </footer>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

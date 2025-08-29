@@ -1,164 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NeoCode // Programming Challenge</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="scan-line"></div>
-    <div class="container">
-      <header>
-        <h1>Neo<span class="glitch-element">//</span>Code</h1>
-        <p>Programming Syntax Challenge Terminal</p>
-      </header>
-      <div class="nav-tabs">
-        <div class="nav-tab active" data-tab="auth">AUTHENTICATION</div>
-        <div class="nav-tab" data-tab="quiz" style="display: none">QUIZ</div>
-        <div class="nav-tab" data-tab="leaderboard">LEADERBOARD</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoCode // Authentication</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Neo<span class="glitch-element">//</span>Code</h1>
+      <p>Programming Syntax Challenge Terminal</p>
+    </header>
+
+    <section class="auth-container">
+      <h2>TEAM AUTHENTICATION</h2>
+      <div class="form-group">
+        <label for="teamName">TEAM CODENAME:</label>
+        <input type="text" id="teamName" placeholder="Enter your team codename" />
       </div>
+      <div class="form-group">
+        <label for="teamLevel">ACADEMIC LEVEL:</label>
+        <select id="teamLevel">
+          <option value="UG1">UG1 - 100 Level</option>
+          <option value="UG2">UG2 - 200 Level</option>
+          <option value="UG3">UG3 - 300 Level</option>
+          <option value="UG4">UG4 - 400 Level</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="teamPassword">ACCESS CODE:</label>
+        <input type="password" id="teamPassword" placeholder="Enter your access code" />
+      </div>
+      <button class="btn btn-auth" id="loginBtn">AUTHENTICATE</button>
+    </section>
+  </div>
 
-      <section class="auth-container" id="authContainer">
-        <h2>TEAM AUTHENTICATION</h2>
-        <div class="form-group">
-          <label for="teamName">TEAM CODENAME:</label>
-          <input
-            type="text"
-            id="teamName"
-            placeholder="Enter your team codename"
-          />
-        </div>
-        <div class="form-group">
-          <label for="teamLevel">ACADEMIC LEVEL:</label>
-          <select id="teamLevel">
-            <option value="100">UG1 - 100 Level</option>
-            <option value="200">UG2 - 200 Level</option>
-            <option value="300">UG3 - 300 Level</option>
-            <option value="400">UG4 - 400 Level</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="teamPassword">ACCESS CODE:</label>
-          <input
-            type="password"
-            id="teamPassword"
-            placeholder="Enter your access code"
-          />
-        </div>
-        <button class="btn btn-auth" id="loginBtn">AUTHENTICATE</button>
-      </section>
-
-      <section class="quiz-container" id="quizContainer">
-        <div class="timer-container">
-          <div id="timer">25:00</div>
-        </div>
-
-        <h2>CODE FRAGMENT ANALYSIS</h2>
-
-        <div class="language-badge java-badge" id="languageBadge">JAVA</div>
-        <div
-          class="difficulty-indicator difficulty-medium"
-          id="difficultyIndicator"
-        >
-          DIFFICULTY: MEDIUM
-        </div>
-
-        <div class="code-container">
-          <pre id="codeSnippet">
-// Java array manipulation
-
-public class ArrayExample {
-public static void main(String[] args) {
-int[] numbers = {1, 2, 3, 4, 5};
-
-// Print array elements
-for(int i = 0; i <= numbers.length; i++) {
-System.out.println(numbers[i]);
-}
-}
-
-}</pre
-          >
-        </div>
-        <div class="hint-toggle" id="hintToggle">
-          <i class="fas fa-lightbulb"></i> Need a hint?
-        </div>
-        <div class="hint-container" id="hintContainer">
-          <strong>Hint:</strong> Check the loop condition carefully. Remember
-          how array indices work in Java.
-        </div>
-        <div class="code-actions">
-          <button class="btn" id="copyCode">COPY FRAGMENT</button>
-          <button class="btn btn-skip" id="skipQuestion">SKIP CHALLENGE</button>
-        </div>
-
-        <div class="skip-counter" id="skipCounter">Skips remaining: 5</div>
-
-        <div class="answer-container">
-          <label>SELECT THE CORRECT OUTPUT AFTER FIXING THE CODE:</label>
-          <div class="options-container" id="optionsContainer">
-            <!-- Options will be dynamically inserted here -->
-          </div>
-        </div>
-
-        <button class="btn btn-submit" id="submitAnswer">
-          TRANSMIT SOLUTION
-        </button>
-
-        <div class="progress-container">
-          <div id="progress">Challenge 1 of 20</div>
-        </div>
-      </section>
-
-      <section class="leaderboard-container" id="leaderboardContainer">
-        <h2>LEADERBOARD</h2>
-        <div class="leaderboard-filters">
-          <button class="btn" id="allScores">ALL SCORES</button>
-          <button class="btn" id="topScores">TOP 10</button>
-          <button class="btn" id="byLevel">BY LEVEL</button>
-        </div>
-
-        <table class="leaderboard-table">
-          <thead>
-            <tr>
-              <th>RANK</th>
-              <th>TEAM</th>
-              <th>LEVEL</th>
-              <th>SCORE</th>
-              <th>PROGRESS</th>
-            </tr>
-          </thead>
-          <tbody id="leaderboardBody">
-            <!-- Leaderboard data will be inserted here -->
-          </tbody>
-        </table>
-      </section>
-
-      <section class="completed-container" id="completedContainer">
-        <h2><i class="fas fa-trophy"></i> MISSION COMPLETE</h2>
-        <p>You have successfully completed the NeoCode challenge!</p>
-        <p>
-          Your final score:
-          <span
-            id="finalScore"
-            style="color: var(--neon-green); font-size: 1.5rem"
-            >0</span
-          >
-        </p>
-        <div id="results"></div>
-        <button class="btn" id="restartQuiz" style="margin-top: 20px">
-          RESTART CHALLENGE
-        </button>
-      </section>
-    </div>
-    <footer>
-      <p>NeoCode Terminal v5.0.1 // Cybersecurity Enabled</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+  <footer>
+    <p>NeoCode Terminal v5.0.1 // Cybersecurity Enabled</p>
+  </footer>
+  <script src="js/auth.js"></script>
+</body>
 </html>
