@@ -8,6 +8,8 @@ const path = require("path");
 const createAdmin = require("./utils/createAdmin");
 const authRoutes = require("./routes/auth");
 const teamRoutes = require("./routes/team");
+const { isMember } = require("./middlewares/auth");
+const expressEjsLayouts = require("express-ejs-layouts");
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -17,7 +19,7 @@ app.use((err, req, res, next) => {
   if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
     return res.status(400).json({
       success: false,
-      message: "Invalid JSON format in request body"
+      message: "Invalid JSON format in request body",
     });
   }
   next(err);
@@ -62,16 +64,29 @@ app.use(
     },
   })
 );
-    createAdmin();
+createAdmin();
+
+// Set EJS as the view engine
+app.use(expressEjsLayouts);
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.set("layout", "./layouts/old");
 // Routes
 
 app.use("/auth", authRoutes);
 app.use("/teams", teamRoutes);
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.render("index");
 });
 
+app.use(isMember);
+app.use("/view", require("./routes/view"));
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).send("404 Not Found");
+});
 
 // Start server
 app.listen(PORT, () => {

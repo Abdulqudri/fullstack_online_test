@@ -101,38 +101,24 @@ greet("Alice")`,
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // ✅ session cookie
-        body: JSON.stringify({ codeName: teamName, accessCode: teamPassword, ugLevel: teamLevel }),
+        body: JSON.stringify({
+          codeName: teamName,
+          accessCode: teamPassword,
+          ugLevel: teamLevel,
+        }),
       });
 
       if (!response.ok) {
         const msg = await response.text();
-        alert("Login failed: " + msg);
-        return;
+        alert(msg);
+
+        return false;
       }
 
       const msg = await response.text();
-      alert(msg);
-
-      // Save user session data
-      userData = {
-        team: teamName,
-        level: teamLevel,
-        startTime: new Date().toISOString(),
-        answers: [],
-      };
-      currentLevel = teamLevel;
-
-      // Switch UI
-      authContainer.style.display = "none";
-      quizContainer.style.display = "block";
-      document.querySelector('[data-tab="quiz"]').style.display = "block";
-      document.querySelector('[data-tab="auth"]').classList.remove("active");
-      document.querySelector('[data-tab="quiz"]').classList.add("active");
-
-      // Start quiz
-      startTime = new Date();
-      startTimer();
-      loadQuestion(0);
+      console.log(msg);
+      window.location.href = "/view/quiz";
+      return true;
     } catch (err) {
       console.error("Login error:", err);
       alert("An error occurred while logging in.");

@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <div class="scan-line"></div>
@@ -17,13 +17,13 @@
         <h1>Neo<span class="glitch-element">//</span>Code</h1>
         <p>Programming Syntax Challenge Terminal</p>
       </header>
-      <div class="nav-tabs">
+      <!-- <div class="nav-tabs">
         <div class="nav-tab active" data-tab="auth">AUTHENTICATION</div>
         <div class="nav-tab" data-tab="quiz" style="display: none">QUIZ</div>
         <div class="nav-tab" data-tab="leaderboard">LEADERBOARD</div>
-      </div>
+      </div> -->
 
-      <section class="auth-container" id="authContainer">
+      <!-- <section class="auth-container" id="authContainer">
         <h2>TEAM AUTHENTICATION</h2>
         <div class="form-group">
           <label for="teamName">TEAM CODENAME:</label>
@@ -51,9 +51,9 @@
           />
         </div>
         <button class="btn btn-auth" id="loginBtn">AUTHENTICATE</button>
-      </section>
+      </section> -->
 
-      <section class="quiz-container" id="quizContainer">
+      <!-- <section class="quiz-container" id="quizContainer">
         <div class="timer-container">
           <div id="timer">25:00</div>
         </div>
@@ -102,7 +102,7 @@ System.out.println(numbers[i]);
         <div class="answer-container">
           <label>SELECT THE CORRECT OUTPUT AFTER FIXING THE CODE:</label>
           <div class="options-container" id="optionsContainer">
-            <!-- Options will be dynamically inserted here -->
+            Options will be dynamically inserted here
           </div>
         </div>
 
@@ -113,9 +113,9 @@ System.out.println(numbers[i]);
         <div class="progress-container">
           <div id="progress">Challenge 1 of 20</div>
         </div>
-      </section>
+      </section> -->
 
-      <section class="leaderboard-container" id="leaderboardContainer">
+      <!-- <section class="leaderboard-container" id="leaderboardContainer">
         <h2>LEADERBOARD</h2>
         <div class="leaderboard-filters">
           <button class="btn" id="allScores">ALL SCORES</button>
@@ -134,12 +134,12 @@ System.out.println(numbers[i]);
             </tr>
           </thead>
           <tbody id="leaderboardBody">
-            <!-- Leaderboard data will be inserted here -->
+            Leaderboard data will be inserted here
           </tbody>
         </table>
-      </section>
+      </section> -->
 
-      <section class="completed-container" id="completedContainer">
+      <!-- <section class="completed-container" id="completedContainer">
         <h2><i class="fas fa-trophy"></i> MISSION COMPLETE</h2>
         <p>You have successfully completed the NeoCode challenge!</p>
         <p>
@@ -154,11 +154,13 @@ System.out.println(numbers[i]);
         <button class="btn" id="restartQuiz" style="margin-top: 20px">
           RESTART CHALLENGE
         </button>
-      </section>
+      </section> -->
+
+      <%- body %>
     </div>
     <footer>
       <p>NeoCode Terminal v5.0.1 // Cybersecurity Enabled</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
